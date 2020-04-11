@@ -15,27 +15,23 @@ public class Test1 {
 
 	@Test
 	public void main() throws MalformedURLException {
-		
-		
+
 		DesiredCapabilities obj = new DesiredCapabilities();
 		obj.setBrowserName("Chrome");
-		
+
 		obj.setPlatform(Platform.WINDOWS);
-		
-		//Merging Chrome options
+
+		// Merging ChromeOptions
 		ChromeOptions Options = new ChromeOptions();
 		Options.merge(obj);
-		
-		
-		
-		
-		String hubUrl="http://192.168.1.59:4444/wd/hub";
-		
-		WebDriver driver = new RemoteWebDriver(new URL(hubUrl),obj);
+
+		String hubUrl = "http://192.168.1.59:4444/wd/hub";
+
+		WebDriver driver = new RemoteWebDriver(new URL(hubUrl), obj);
 		driver.get("http://www.youtube.com");
-		String title= driver.getTitle();
+		String title = driver.getTitle();
 		Assert.assertEquals("Youtube", title);
-		
+
 	}
 
 }
